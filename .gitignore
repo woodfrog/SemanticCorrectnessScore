@@ -1,0 +1,6 @@
+data/*
+*.pyc
+*~
+*.pth
+VOCdevkit
+.idea
