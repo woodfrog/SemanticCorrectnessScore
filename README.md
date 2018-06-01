@@ -3,7 +3,9 @@
 
 This repository implements the evaluation metric **Semantic Correctness Score** proposed in the paper **Probabilistic Neural Programmed Networks for Scene Generation**. This metric measures the quality of generated images based on semantic correctness, i.e. it measures whether an image contains correct number of objects, objects with specified class, and objects with specified attributes and properties. 
 
-Semantic Correctness Score is a **detector-based** metric, and this repo is built on the basis of the popular Pytorch faster-rcnn implementation [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch).
+Semantic Correctness Score is a **detector-based** metric, and this repo is built on the basis of the popular Pytorch faster-rcnn implementation [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch).  
+
+**Note: Check the original Faster-rcnn repo(the link above) for preparation and initial setup including compiling necessary files**
 
 
 ## Details of Semantic Correctness Score
@@ -22,8 +24,12 @@ Semantic Correctness Score is a **detector-based** metric, and this repo is buil
     
 3. **object-attribute combination**
 
-    Object-attribute combination score is the most difficult. The model has to generate objects matching all semantic information to get good score. For example, in CLEVR-G dataset, an object is described by its class and a set of attributes, e.g. a large red metal sphere, then a good generative model should generate exactly such a sphere with these attributes. 
+    Similar with above two, but for object-attributes combinations. The model has to generate objects matching all semantic information to get good score. For example, in CLEVR-G dataset, objects are described by their class and a set of attributes, e.g. a large red metal sphere and a small blue rubber cube. Then a good generative model should generate exactly such objects with these attributes. 
 
+4. **Relationships between objects**
+
+    The semantic correctness score does not measure the correctness of relationships between objects in the scene, since the ground-truth bounding boxes only give one of all possibilities of the given relationship and there can be lots of positions for generated objects to satisfy the relationship. Other metrics are required if we need to measure the relationships in generated scenes.
+    
 ## Train the detector
 
 To train a detector on a given dataset:
