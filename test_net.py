@@ -24,7 +24,7 @@ import pickle
 from lib.roi_data_layer.clevr_roidb import prepare_clevr_roidb
 from lib.roi_data_layer.colormnist_roidb import prepare_colormnist_roidb
 from lib.roi_data_layer.roibatchLoader import roibatchLoader
-from lib.datasets.dis_eval import dis_detector_eval, detector_score_eval
+from lib.datasets.scs_eval import detector_eval, scs_detector_score_eval
 from model.utils.config import cfg, cfg_from_file, cfg_from_list, get_output_dir
 from model.rpn.bbox_transform import clip_boxes
 from model.nms.nms_wrapper import nms
@@ -374,12 +374,12 @@ if __name__ == '__main__':
     # selected_class_idx = [3, 5, 20]
 
     selected_class_idx = [i for i in range(1, len(vocabulary))]
-    # map = dis_detector_eval(all_boxes, roidb, vocabulary, selected_class_idx=selected_class_idx)
+    # map = detector_eval(all_boxes, roidb, vocabulary, selected_class_idx=selected_class_idx)
 
     # selected_class_idx = [1]
 
     # selected_class_idx = [i for i in range(1, 11)]
-    map = detector_score_eval(all_boxes, roidb, vocabulary, selected_class_idx)
+    map = scs_detector_score_eval(all_boxes, roidb, vocabulary, selected_class_idx)
 
     print('MAP: {}'.format(map))
 

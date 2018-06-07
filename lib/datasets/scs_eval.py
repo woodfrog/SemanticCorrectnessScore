@@ -47,12 +47,12 @@ def voc_ap(rec, prec, use_07_metric=False):
     return ap
 
 
-def dis_detector_eval(all_boxes,
-                      roidb,
-                      vocabulary,
-                      selected_class_idx,
-                      ovthresh=0.5,
-                      use_07_metric=False):
+def detector_eval(all_boxes,
+                  roidb,
+                  vocabulary,
+                  selected_class_idx,
+                  ovthresh=0.5,
+                  use_07_metric=False):
     """rec, prec, ap = voc_eval(detpath,
                                 annopath,
                                 imagesetfile,
@@ -171,11 +171,11 @@ def dis_detector_eval(all_boxes,
     return aps.mean()
 
 
-def detector_score_eval(all_boxes,
-                        roidb,
-                        vocabulary,
-                        selected_class_idx,
-                        use_07_metric=False):
+def scs_detector_score_eval(all_boxes,
+                            roidb,
+                            vocabulary,
+                            selected_class_idx,
+                            use_07_metric=False):
     # ground-truth bboxes for every class in each image
     npos_all = [0 for _ in range(len(vocabulary))]
     gt_records = [[{'bbox': list(), 'difficult': list(), 'det': list()} for _ in range(len(vocabulary))] for _ in
