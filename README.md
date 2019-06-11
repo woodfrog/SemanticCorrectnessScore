@@ -28,6 +28,8 @@ or set all command line arguments in train_script.sh and simply run:
 
 ### Get the semantic correctness score
 
+Our pre-trained weights for CLEVR 64X64: [link](https://www.dropbox.com/s/b7iuvxucp5lo2mz/detectors.zip?dl=0)
+
 Get the semantic correctness score by running a test using a trained detector:
 
 ```shell
